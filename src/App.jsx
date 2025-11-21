@@ -6,8 +6,8 @@ function App() {
   const [certificates, setCertificates] = useState([]);
 
   const fetchCertificates = async () => {
-    const response = await fetch('https://694eb320e1c6.ngrok-free.app/api/certificates')
-    const data = await response.json()
+    const response = await fetch('https://694eb320e1c6.ngrok-free.app/api/certificates');
+    const data = await response.json();
     setCertificates(data);
   };
 
