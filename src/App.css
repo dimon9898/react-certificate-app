@@ -1,38 +1,121 @@
 .App {
+  width: 100vw;
+  height: 1200px;
+  background: rgb(22, 22, 22);
+  font-family: 'Comfortaa',sans-serif;
+}
+
+.app_navbar {
+  width: 100%;
+  height: 40px;
+  background-color: rgb(247, 177, 46);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: 'Comfortaa',sans-serif;
+  color: rgb(37, 37, 37);
+  letter-spacing: 1px;
+
+}
+
+.app_h1 {
+  font-size: 24px;
+  font-family: 'Comfortaa',sans-serif;
+  font-weight: 700;
+  margin: 50px auto;
   text-align: center;
+  color: wheat;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Certificate_container {
+  width: 35%;
+  height: 220px;
+  background:linear-gradient(to right, rgb(254, 252, 252), rgb(245, 178, 53));
+  padding-left: 50px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content:space-evenly;
+  box-shadow: 0px 2px 5px wheat;
+}
+
+.Certificate_container h1 {
+  font-size: 18px;
+  color: black;
+}
+
+.Certificate_container h3 {
+  font-size: 14px;
+  color: rgb(56, 55, 55);
+}
+
+.Certificate_container p {
+  font-size: 14px;
+  color: red;
+  font-weight: 600;
+  letter-spacing: 1px;
+  
+}
+
+.Certifi_div {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  gap: 40px;
+}
+
+.certificate_btn {
+  width: 120px;
+  height: 40px;
+  margin-top: 10px;
+  border: 1px solid #cccc;
+  border-radius: 5px;
+  background-color: orange;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #323232;
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+  font-weight: 600;
+  font-family: 'Comfortaa',sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 5px 2px #cccc;
+}
+
+.certificate_btn:hover {
   color: white;
+  background-color: black;
 }
 
-.App-link {
-  color: #61dafb;
+@media (max-width: 430px) {
+  .Certificate_container {
+    width: 60%;
+    padding-left: 10px;
+  }
+
+  .Certificate_container h1 {
+    font-size: 16px;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.loader {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 3px solid #ccc;
+  border-top: 5px solid red;
+  transition: 2s ease-in-out;
+  animation: spring 1s ease-in-out infinite;
+}
+
+@keyframes spring {
+  to {transform: rotate(360deg);}
 }
