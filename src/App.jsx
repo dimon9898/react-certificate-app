@@ -7,7 +7,7 @@ function App() {
 
   const fetchCertificates = async () => {
     try {
-      const response = await fetch('https://694eb320e1c6.ngrok-free.app/api/certificates');
+      const response = await fetch('https://ds-bot-h5l3.onrender.com/api/certificates');
       const data = await response.json();
       setCertificates(data);
       console.log(data);
