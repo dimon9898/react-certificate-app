@@ -95,37 +95,6 @@
   background-color: black;
 }
 
-@media (max-width: 430px) {
-  .Certificate_container {
-    width: 70%;
-    height: 150px;
-    justify-content: flex-start;
-    overflow: hidden; 
-
-    padding-left: 10px;
-  }
-
-  .Certificate_container h1 {
-    font-size: 10px;
-    padding-top: 10px;
-  }
-
-  .Certificate_container h3 {
-    font-size: 10px;
-  }
-
-  .certificate_btn {
-    width: 100px;
-    height: 20px;
-    font-size: 12px;
-  }
-
-  .Certifi_div {
-    justify-content: flex-start;
-  }
-
-}
-
 .loader {
   width: 25px;
   height: 25px;
@@ -139,3 +108,42 @@
 @keyframes spring {
   to {transform: rotate(360deg);}
 }
+
+@media (max-width: 430px) {
+  .Certificate_container {
+    width: 85%;
+    height: 180px;
+    justify-content: flex-start;
+    overflow: hidden; 
+
+    padding-left: 20px;
+  }
+
+  .Certificate_container h1 {
+    font-size: 14px;
+    padding-top: 10px;
+  }
+
+  .Certificate_container h3 {
+    font-size: 12px;
+  }
+
+  .certificate_btn {
+    width: 100px;
+    height: 35px;
+    font-size: 12px;
+  }
+
+  .Certifi_div {
+    justify-content: flex-start;
+  }
+
+  .loader {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #cccc;
+    border-top: 2px solid red;
+  }
+
+}
+
