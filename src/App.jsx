@@ -18,11 +18,16 @@ function App() {
   };
 
   useEffect(() => {
-    fetchCertificates();
-    const tg = window.Telegram.WebApp;
-    console.log('data:', tg);
-    tg.ready();
+  const tg = window.Telegram?.WebApp;
+
+  if (!tg) {
+    console.warn("❗ WebApp не найден. Скорее всего, ты открыл сайт в браузере.");
+    return; // Не даём приложению упасть
+  }
+
+  tg.ready();
   }, []);
+
 
   const BuyCertificate = async (certifi) => {
     const tg = window.Telegram.WebApp;
