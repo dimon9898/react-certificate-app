@@ -22,7 +22,7 @@ function App() {
   }, []);
 
   const BuyCertificate = async (certifi) => {
-    const tg = window.Telegram.WebApp();
+    const tg = window.Telegram.WebApp;
     tg.sendData(JSON.stringify(certifi));
   };
 
