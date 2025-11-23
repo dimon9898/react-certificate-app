@@ -31,9 +31,22 @@ function App() {
 
 
   const BuyCertificate = async (certifi) => {
-    const tg = window.Telegram.WebApp;
-    tg.ready();
-    tg.sendData(JSON.stringify(certifi));
+    if (window.Telegram && window.Telegram.WebApp) {
+      window.Telegram.WebApp.MainButton.showProgress();
+
+      window.Telegram.WebApp.sendData(JSON.stringify(certifi), (success) => {
+        if (success) {
+          window.Telegram.WebApp.close();
+        } else {
+          alert('Ошибка при отправке')
+        }
+
+        window.Telegram.WebApp.MainButton.hideProgress();
+      })
+
+    } else {
+      alert(JSON.stringify(certifi, null, 2));
+    }
   };
 
 
