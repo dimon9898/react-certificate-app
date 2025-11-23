@@ -18,6 +18,7 @@ function App() {
   };
 
   useEffect(() => {
+  fetchCertificates();
   const tg = window.Telegram?.WebApp;
 
   if (!tg) {
