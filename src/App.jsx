@@ -19,13 +19,15 @@ function App() {
 
   useEffect(() => {
     fetchCertificates();
+    const tg = window.Telegram.WebApp;
+    console.log('data:', tg);
+    tg.ready();
   }, []);
 
   const BuyCertificate = async (certifi) => {
     const tg = window.Telegram.WebApp;
     tg.ready();
     tg.sendData(JSON.stringify(certifi));
-    tg.close();
   };
 
 
