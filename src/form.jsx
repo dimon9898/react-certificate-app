@@ -22,6 +22,8 @@ export default function FormCertificate({ selectedCert }) {
         if (window.Telegram && window.Telegram.WebApp) {
             window.Telegram.WebApp.MainButton.showProgress();
             window.Telegram.WebApp.sendData(JSON.stringify(fullData));
+            window.Telegram.WebApp.MainButton.hideProgress();
+            window.Telegram.WebApp.close();
         };
     };
 
