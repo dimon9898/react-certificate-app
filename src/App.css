@@ -1,8 +1,8 @@
 .App {
   width: 100vw;
-  height: 1200px;
+  min-height: 100vh;
   background: rgb(22, 22, 22);
-  font-family: 'Comfortaa',sans-serif;
+  font-family: 'Montserrat',sans-serif;
 }
 
 .app_navbar {
@@ -22,9 +22,9 @@
 
 .app_h1 {
   font-size: 24px;
-  font-family: 'Comfortaa',sans-serif;
+  font-family: 'Montserrat',sans-serif;
   font-weight: 700;
-  margin: 50px auto;
+  margin: 40px auto;
   text-align: center;
   color: wheat;
 }
@@ -40,6 +40,7 @@
   flex-direction: column;
   justify-content:space-evenly;
   box-shadow: 0px 2px 5px wheat;
+  margin-bottom: 50px;
 }
 
 .Certificate_container h1 {
@@ -62,12 +63,11 @@
 
 .Certifi_div {
   width: 100%;
-  height: 70%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 40px;
 }
 
 .certificate_btn {
@@ -83,7 +83,7 @@
   cursor: pointer;
   transition: 0.1s ease-in-out;
   font-weight: 600;
-  font-family: 'Comfortaa',sans-serif;
+  font-family: 'Montserrat',sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,6 +108,101 @@
 @keyframes spring {
   to {transform: rotate(360deg);}
 }
+
+
+.LoadingContainer {
+  width: 100vw;
+  height: 100dvh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader_div {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 5px solid #cccc;
+  border-top: 5px solid red;
+  animation: pageloader 1s ease-in-out infinite;
+}
+
+@keyframes pageloader {
+  to {transform: rotate(360deg);}
+}
+
+
+
+
+.FormContainer {
+  width: 100vw;
+  height: 100dvh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {opacity: 1;}
+}
+
+
+.Form {
+  width: 40%;
+  height: 600px;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding-left: 150px;
+  box-shadow: 0px 5px 10px wheat;
+  transform: translateY(-100%);
+  opacity: 0;
+  animation: fadeDown 0.5s ease forwards;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+}
+
+@keyframes fadeDown {
+  to {transform: translateY(0%);
+  opacity: 1;}
+}
+
+
+.form-input {
+  width: 70%;
+  height: 35px;
+  background-color: #f3f1f1;
+  border: none;
+  color: black;
+  font-size: 16px;
+  outline: none;
+  border-bottom: 1px solid #cccc;
+  padding-left: 15px;
+}
+
+.form-btn {
+  width: 150px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
 
 @media (max-width: 430px) {
   .Certificate_container {
@@ -145,5 +240,20 @@
     border-top: 2px solid red;
   }
 
+  .Form {
+    width: 90%;
+    height: 500px;
+    padding-left: 20px;
+    font-size: 14px;
+  }
+
+  .form-input {
+    width: 90%;
+  }
+
+  .form-btn {
+    width: 120px;
+    height: 50px;
+  }
 }
 

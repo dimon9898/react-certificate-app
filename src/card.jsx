@@ -1,17 +1,20 @@
 import { useState } from 'react';
 import './App.css'
+
 export default function CertificateCard({certifi, buyCertificate}) {
 
     const [isLoader, setIsLoader] = useState(false);
+
 
     const handleBuyClick = async () => {
         setIsLoader(true);
         await buyCertificate(certifi);
         setTimeout(() => {
-            setIsLoader(false);
+            setIsLoader(false);     
         }, 1000);
     }
-    
+
+
     return (
         <div className="Certificate_container">
             <h1>{certifi.title}</h1>

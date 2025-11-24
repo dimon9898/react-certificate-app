@@ -1,9 +1,15 @@
 import CertificateCard from './card';
 import './App.css';
 import { useEffect, useState } from 'react';
+import LoadingPage from './loading';
+import FormCertificate from './form';
 
 function App() {
   const [certificates, setCertificates] = useState([]);
+  const [isLoader, setIsLoader] = useState(false);
+  const [isButtonState, setIsButtonState] = useState(false);
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
+
 
   const fetchCertificates = async () => {
     try {
@@ -19,6 +25,7 @@ function App() {
 
   useEffect(() => {
   fetchCertificates();
+  setIsLoader(true);
   const tg = window.Telegram?.WebApp;
 
   if (!tg) {
@@ -27,28 +34,24 @@ function App() {
   }
 
   tg.ready();
+  setTimeout(() => {
+    setIsLoader(false);
+  }, 1000);
   }, []);
 
 
+
   const BuyCertificate = async (certifi) => {
-    if (window.Telegram && window.Telegram.WebApp) {
-      window.Telegram.WebApp.MainButton.showProgress();
+    setSelectedCertificate(certifi);
+    setTimeout(() => {
+      setIsButtonState(true);
+  }, 1000)};    
 
-      window.Telegram.WebApp.sendData(JSON.stringify(certifi), (success) => {
-        if (success) {
-          window.Telegram.WebApp.close();
-        } else {
-          alert('Ошибка при отправке')
-        }
-
-        window.Telegram.WebApp.MainButton.hideProgress();
-      })
-
-    } else {
-      alert(JSON.stringify(certifi, null, 2));
-    }
+  if (isLoader) {
+    return <LoadingPage />;
   };
 
+    
 
 
   return (
@@ -64,6 +67,11 @@ function App() {
           />
         ))}
       </div>
+      {isButtonState && (
+        <FormCertificate 
+          selectedCert={selectedCertificate}
+        />
+      )}
     </div>
   );
 }
