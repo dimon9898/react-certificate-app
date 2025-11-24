@@ -71,6 +71,7 @@ function App() {
       {isButtonState && (
         <FormCertificate 
           selectedCert={selectedCertificate}
+          onCloseBtn={() => setIsButtonState(false)}
         />
       )}
     </div>

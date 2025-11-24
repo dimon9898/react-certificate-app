@@ -8,14 +8,14 @@
 .app_navbar {
   width: 100%;
   height: 40px;
-  background-color: rgb(247, 177, 46);
+  background-color: rgb(14, 13, 13);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 24px;
   font-weight: 700;
   font-family: 'Comfortaa',sans-serif;
-  color: rgb(37, 37, 37);
+  color: rgb(255, 255, 255);
   letter-spacing: 1px;
 
 }
@@ -26,20 +26,20 @@
   font-weight: 700;
   margin: 40px auto;
   text-align: center;
-  color: wheat;
+  color: #ccc;
 }
 
 
 .Certificate_container {
   width: 35%;
   height: 220px;
-  background:linear-gradient(to right, rgb(254, 252, 252), rgb(245, 178, 53));
+  background:linear-gradient(to right, white, #adacaccc);
   padding-left: 50px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content:space-evenly;
-  box-shadow: 0px 2px 5px wheat;
+  box-shadow: 0px 2px 5px black;
   margin-bottom: 50px;
 }
 
@@ -76,10 +76,10 @@
   margin-top: 10px;
   border: 1px solid #cccc;
   border-radius: 5px;
-  background-color: orange;
+  background-color: black;
   font-size: 15px;
   letter-spacing: 1px;
-  color: #323232;
+  color: white;
   cursor: pointer;
   transition: 0.1s ease-in-out;
   font-weight: 600;
@@ -87,12 +87,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 5px 2px #cccc;
 }
 
 .certificate_btn:hover {
   color: white;
-  background-color: black;
+  background-color: rgb(70, 69, 69);
 }
 
 .loader {
@@ -146,16 +145,21 @@
   z-index: 999;
   inset: 0;
   opacity: 0;
-  animation: fadeIn 0.5s ease forwards;
+  pointer-events: none;
+  transform: translateY(100px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-@keyframes fadeIn {
-  to {opacity: 1;}
+.FormContainer.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
 }
+
 
 
 .Form {
-  width: 40%;
+  width: 30%;
   height: 600px;
   background-color: white;
   border-radius: 20px;
@@ -164,43 +168,100 @@
   justify-content: center;
   align-items: flex-start;
   gap: 20px;
-  padding-left: 150px;
+  padding-left: 70px;
   box-shadow: 0px 5px 10px wheat;
-  transform: translateY(-100%);
+  transform: scale(0.8);
   opacity: 0;
-  animation: fadeDown 0.5s ease forwards;
   font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
+  transition: all 0.5s   ease;
 }
 
-@keyframes fadeDown {
-  to {transform: translateY(0%);
-  opacity: 1;}
+
+.FormContainer.open .Form {
+  opacity: 1;
+  transform: scale(1);
 }
 
 
 .form-input {
-  width: 70%;
-  height: 35px;
-  background-color: #f3f1f1;
+  width: 80%;
+  height: 20px;
+  background-color: inherit;
+  border-bottom-right-radius: 10px;
   border: none;
   color: black;
   font-size: 16px;
   outline: none;
-  border-bottom: 1px solid #cccc;
-  padding-left: 15px;
+  border-bottom: 1px solid #5b5a5acc;
+  padding-left: 5px;
 }
 
 .form-btn {
-  width: 150px;
-  height: 40px;
+  width: 80%;
+  height: 50px;
   border: none;
   border-radius: 10px;
   background-color: black;
   color: white;
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 1px;
   cursor: pointer;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Form h1 {
+  font-size: 28px;
+}
+
+.Form p {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.close-div {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  z-index: 1000;
+  right: 20px;
+  top: 20px;
+}
+
+.close-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  color: black;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.buy-loader {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #cccc;
+  border-top: 3px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  animation: buyloader 1s ease-in-out infinite;
+}
+
+@keyframes buyloader {
+  to {transform: rotate(360deg);}
 }
 
 
@@ -247,13 +308,28 @@
     font-size: 14px;
   }
 
+  .Form p {
+    font-size: 12px;
+  }
+
   .form-input {
-    width: 90%;
+    width: 95%;
   }
 
   .form-btn {
-    width: 120px;
+    width: 95%;
     height: 50px;
+  }
+
+  .close-div {
+    width: 30px;
+    height: 30px;
+  }
+
+  .close-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
   }
 }
 
