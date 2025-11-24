@@ -34,6 +34,7 @@ function App() {
   }
 
   tg.ready();
+  tg.expand();
   setTimeout(() => {
     setIsLoader(false);
   }, 1000);
