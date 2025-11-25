@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export default function FormCertificate({ selectedCert, onCloseBtn}) {
+export default function FormCertificate({ selectedCert, onCloseBtn, showSuccess}) {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -18,7 +18,9 @@ export default function FormCertificate({ selectedCert, onCloseBtn}) {
 
     const handleClose = () => {
         setIsOpen(false);
-        setTimeout(onCloseBtn, 500);
+        setTimeout(() => {
+            onCloseBtn();
+        }, 400);
     };
 
 
@@ -36,12 +38,12 @@ export default function FormCertificate({ selectedCert, onCloseBtn}) {
         }
 
         if (window.Telegram && window.Telegram.WebApp) {
-            window.Telegram.WebApp.MainButton.show();
-            window.Telegram.WebApp.sendData(JSON.stringify(fullData));
-            window.Telegram.WebApp.MainButton.hide();
             setTimeout(() => {
                 setIsBuyLoader(false);
             }, 1000);
+            window.Telegram.WebApp.MainButton.show();
+            window.Telegram.WebApp.sendData(JSON.stringify(fullData));
+            window.Telegram.WebApp.MainButton.hide();
             window.Telegram.WebApp.close();
         };
 
@@ -51,10 +53,20 @@ export default function FormCertificate({ selectedCert, onCloseBtn}) {
             email: '',
             phone: ''
         });
+        
         setTimeout(() => {
             setIsBuyLoader(false);
         }, 1000);
+
         e.target.reset();
+        showSuccess();
+
+        setTimeout(() => {
+            setIsOpen(false);
+            setTimeout(() => {
+                onCloseBtn();
+            }, 400);
+        }, 1000);
     };
 
     return (

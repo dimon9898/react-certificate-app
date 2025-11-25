@@ -9,6 +9,7 @@ function App() {
   const [isLoader, setIsLoader] = useState(false);
   const [isButtonState, setIsButtonState] = useState(false);
   const [selectedCertificate, setSelectedCertificate] = useState(null);
+  const [isShowState, setIsShowState] = useState(false);
 
 
   const fetchCertificates = async () => {
@@ -46,11 +47,22 @@ function App() {
     setSelectedCertificate(certifi);
     setTimeout(() => {
       setIsButtonState(true);
-  }, 1000)};    
+  }, 1000)};
+
 
   if (isLoader) {
     return <LoadingPage />;
   };
+
+
+  const showNotify = async () => {
+    setTimeout(() => {
+      setIsShowState(true);
+    }, 1000);
+    setTimeout(() => {
+      setIsShowState(false);
+    }, 4000);
+  }
 
     
 
@@ -72,8 +84,12 @@ function App() {
         <FormCertificate 
           selectedCert={selectedCertificate}
           onCloseBtn={() => setIsButtonState(false)}
+          showSuccess={showNotify}
         />
       )}
+      <div className={`notify-div ${isShowState ? 'show-open' : ''}`}>
+        <p>Данные успешно отправлены!</p>
+      </div>
     </div>
   );
 }
