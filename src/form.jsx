@@ -41,10 +41,12 @@ export default function FormCertificate({ selectedCert, onCloseBtn, showSuccess}
             setTimeout(() => {
                 setIsBuyLoader(false);
             }, 1000);
-            window.Telegram.WebApp.MainButton.show();
-            window.Telegram.WebApp.sendData(JSON.stringify(fullData));
-            window.Telegram.WebApp.MainButton.hide();
-            window.Telegram.WebApp.close();
+            setTimeout(() => {
+                window.Telegram.WebApp.MainButton.show();
+                window.Telegram.WebApp.sendData(JSON.stringify(fullData));
+                window.Telegram.WebApp.MainButton.hide();
+                window.Telegram.WebApp.close();
+            }, 2000);
         };
 
         console.log(fullData);
