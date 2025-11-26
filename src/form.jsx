@@ -75,9 +75,9 @@ export default function FormCertificate({ selectedCert, onCloseBtn, showSuccess}
                 <div className="close-div">
                     <button type="button" className="close-btn" onClick={handleClose}>x</button>
                 </div>
-                <h1>Ваши данные</h1>
+                <h1>Данные получателя</h1>
                 <label>
-                    ФИО получателя:
+                    ФИО:
                 </label>
                 <input 
                     type="text"
@@ -89,6 +89,7 @@ export default function FormCertificate({ selectedCert, onCloseBtn, showSuccess}
                     placeholder="Иванов Иван Иванович"
                     required
                 />
+                <h1>Ваши данные</h1>
                 <label>
                     Email:
                 </label>
@@ -115,7 +116,7 @@ export default function FormCertificate({ selectedCert, onCloseBtn, showSuccess}
                     placeholder="+7"
                     required
                 />
-                <p>| Подарочный сертификат: "{selectedCert.title}"</p>
+                <p className="p-selected">| Подарочный сертификат: "{selectedCert.title}"</p>
                 <button type="submit" className="form-btn">
                     {isBuyLoader ? (
                         <div className="buy-loader"></div>

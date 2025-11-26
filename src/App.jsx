@@ -17,7 +17,7 @@ function App() {
       const response = await fetch('https://ds-bot-h5l3.onrender.com/api/certificates');
       const data = await response.json();
       setCertificates(data);
-      console.log(data);
+      console.log(data);  
     } catch (err) {
       console.error('Ошибка:', err);
     }
