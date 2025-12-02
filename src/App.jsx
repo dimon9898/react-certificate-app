@@ -13,7 +13,6 @@ function App() {
   const [selectedCertificate, setSelectedCertificate] = useState(null);
   const [isShowState, setIsShowState] = useState(false);
   const [isProfile, setIsProfile] = useState(false);
-  const [tgUser, setTgUser] = useState({});
 
   const fetchCertificates = async () => {
     try {
@@ -39,8 +38,6 @@ function App() {
 
   tg.ready();
   tg.expand();
-  const user = tg.initDataUnsafe.user;
-  setTgUser(user);
   setTimeout(() => {
     setIsLoader(false);
   }, 1000);
@@ -96,7 +93,7 @@ function App() {
         <p>Данные успешно отправлены!</p>
       </div> 
       <FooterMain showProfile={() => setIsProfile(!isProfile)}/>
-      <ProfileCard  userInfo={tgUser} isAccount={isProfile} hideProfile={() => setIsProfile(!isProfile)}/>
+      <ProfileCard isAccount={isProfile} hideProfile={() => setIsProfile(!isProfile)}/>
     </div>
   );
 }
