@@ -7,8 +7,8 @@ export default function ProfileCard({userInfo, isAccount, hideProfile}) {
         <div className={`ProfilContainer ${isAccount ? 'open_profile' : ''}`}>
             <div className="profile-box">
                 <div className="header-top">
-                    <p>ID:</p>
-                    <p>Имя:</p>
+                    <p>ID: {userInfo.id}</p>
+                    <p>Имя: {userInfo.lastname}</p>
                     <p>Тел:</p>
                     <button className='profile-close-btn' onClick={hideProfile}><FontAwesomeIcon icon={faCircleXmark} /></button>
                 </div>
