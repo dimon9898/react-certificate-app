@@ -3,6 +3,8 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import LoadingPage from './loading';
 import FormCertificate from './form';
+import ProfileCard from './Profile';
+import FooterMain from './FooterNav';
 
 function App() {
   const [certificates, setCertificates] = useState([]);
@@ -10,7 +12,8 @@ function App() {
   const [isButtonState, setIsButtonState] = useState(false);
   const [selectedCertificate, setSelectedCertificate] = useState(null);
   const [isShowState, setIsShowState] = useState(false);
-
+  const [isProfile, setIsProfile] = useState(false);
+  const [tgUser, setTgUser] = useState({});
 
   const fetchCertificates = async () => {
     try {
@@ -36,6 +39,8 @@ function App() {
 
   tg.ready();
   tg.expand();
+  const user = tg.initDataUnsafe.user;
+  setTgUser(user);
   setTimeout(() => {
     setIsLoader(false);
   }, 1000);
@@ -89,7 +94,9 @@ function App() {
       )}
       <div className={`notify-div ${isShowState ? 'show-open' : ''}`}>
         <p>Данные успешно отправлены!</p>
-      </div>
+      </div> 
+      <FooterMain showProfile={() => setIsProfile(!isProfile)}/>
+      <ProfileCard  userInfo={tgUser} isAccount={isProfile} hideProfile={() => setIsProfile(!isProfile)}/>
     </div>
   );
 }
