@@ -574,7 +574,7 @@ html, body {
 
   .profile-box-center {
     width: calc(100% - 10%);
-    height: calc(100% - 30%);
+    height: calc(100% - 220px);
   }
 
   .header-top {
