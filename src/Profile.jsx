@@ -3,9 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAnglesRight, faCircleInfo, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { faCartFlatbed } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState } from 'react';
+import MyOrdersPage from './MyOrders';
 
 export default function ProfileCard({userInfo, isAccount, hideProfile}) {
     const [user, setUser] = useState(null);
+    const [isOpenOrders, setIsOpenOrders] = useState(false);
 
 
     useEffect(() => {
@@ -13,6 +15,7 @@ export default function ProfileCard({userInfo, isAccount, hideProfile}) {
         tg?.ready();
         setUser(tg?.initDataUnsafe?.user || null);
     }, []);
+
 
     return (
         <div className={`ProfilContainer ${isAccount ? 'open_profile' : ''}`}>
@@ -28,7 +31,7 @@ export default function ProfileCard({userInfo, isAccount, hideProfile}) {
                     <button className='profile-close-btn' onClick={hideProfile}><FontAwesomeIcon icon={faCircleXmark} /></button>
                 </div>
                 <div className="profile-box-center">
-                    <button className='box-center-item'>
+                    <button className='box-center-item' onClick={() => setIsOpenOrders(true)}>
                         <FontAwesomeIcon icon={faCartFlatbed} className='fa-icon'/>
                         <a href="*">Мои покупки</a>
                         <FontAwesomeIcon icon={faAnglesRight} className='fa-right-icon'/>
@@ -39,6 +42,9 @@ export default function ProfileCard({userInfo, isAccount, hideProfile}) {
                         <FontAwesomeIcon icon={faAnglesRight} className='fa-right-icon'/>
                     </button>
                 </div>
+                {isOpenOrders && (
+                    <MyOrdersPage OpenOrders={() => setIsOpenOrders(!isOpenOrders)}/>
+                )}
             </div>
         </div>
     )
